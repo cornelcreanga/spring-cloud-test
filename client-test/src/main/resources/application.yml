@@ -1,0 +1,13 @@
+info:
+  component: Config Samples
+endpoints:
+  restart:
+    enabled: true
+logging:
+  levels:
+    org.springframework.boot.env.PropertySourcesLoader: TRACE
+    org.springframework.web: DEBUG
+server:
+  port: 8090
+
+info.description: SMS_LOCAL_URL
