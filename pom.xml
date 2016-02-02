@@ -5,7 +5,7 @@
 
 	<groupId>com.ccreanga.examples.springcloud</groupId>
 	<artifactId>springcloud-pom</artifactId>
-    <version>1.1.0.BUILD-SNAPSHOT</version>
+    <version>0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<name>springcloud-pom</name>
@@ -13,9 +13,8 @@
 
     <parent>
         <groupId>org.springframework.cloud</groupId>
-        <artifactId>spring-cloud-build</artifactId>
-        <version>1.1.0.BUILD-SNAPSHOT</version>
-        <relativePath/> <!-- lookup parent from config -->
+        <artifactId>spring-cloud-starter-parent</artifactId>
+        <version>Brixton.BUILD-SNAPSHOT</version>
     </parent>
     <scm>
         <url>https://github.com/spring-cloud/spring-cloud-config</url>
@@ -25,24 +24,23 @@
     </scm>
     <properties>
         <bintray.package>config</bintray.package>
-        <spring-cloud-bus.version>1.1.0.BUILD-SNAPSHOT</spring-cloud-bus.version>
-        <spring-cloud-commons.version>1.1.0.BUILD-SNAPSHOT</spring-cloud-commons.version>
     </properties>
     <modules>
         <module>server-test</module>
         <module>client-test</module>
     </modules>
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-config-dependencies</artifactId>
-                <version>${project.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
+
+    <repositories>
+        <repository>
+            <id>spring-milestones</id>
+            <name>Spring Milestones</name>
+            <url>http://repo.spring.io/milestone</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+
     <profiles>
         <profile>
             <id>spring</id>
