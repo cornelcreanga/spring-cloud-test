@@ -1,26 +1,30 @@
 package com.ccreanga.springcloud;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.cloud.endpoint.RefreshEndpoint;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
+@ConfigurationProperties(prefix="sms")
+@EnableConfigurationProperties
 @Configuration
-@EnableAutoConfiguration
-@ComponentScan
 public class Config {
 
-    @Value("${info.description}")
-    String smsService;
+    String value;
 
-    @Autowired
-    RefreshEndpoint refreshEndpoint;
+//    @Autowired
+//    RefreshEndpoint refreshEndpoint;
 
-    public String getSmsService() {
-        return smsService;
+    public String getValue() {
+        return value;
     }
 
-
+    public void setValue(String value) {
+        this.value = value;
+    }
 }

@@ -14,7 +14,7 @@
     <parent>
         <groupId>org.springframework.cloud</groupId>
         <artifactId>spring-cloud-starter-parent</artifactId>
-        <version>Brixton.BUILD-SNAPSHOT</version>
+        <version>Brixton.RELEASE</version>
     </parent>
     <scm>
         <url>https://github.com/spring-cloud/spring-cloud-config</url>

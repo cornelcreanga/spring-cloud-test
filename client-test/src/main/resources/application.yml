@@ -7,7 +7,11 @@ logging:
   levels:
     org.springframework.boot.env.PropertySourcesLoader: TRACE
     org.springframework.web: DEBUG
+    com.ccreanga.springcloud: DEBUG
 server:
   port: 8090
 
-info.description: SMS_LOCAL_URL
+sms:
+  value:  SMS_DEFAULT_INITIAL_VALUE
+
+debug: true

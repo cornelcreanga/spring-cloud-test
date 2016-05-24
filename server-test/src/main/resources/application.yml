@@ -1,44 +1,48 @@
+#info:
+#  component: Config Server
+#spring:
+#  application:
+#    name: configserver
+#  jmx:
+#    default_domain: cloud.config.server
+#  cloud:
+#    config:
+#      server:
+#        git:
+#          uri: https://github.com/cornelcreanga/config-repo
+#          repos:
+#            - patterns: multi-repo-demo-*
+#              uri: https://github.com/cornelcreanga/config-repo
+#
+#server:
+#  port: 8888
+#management:
+#  context_path: /admin
+
 info:
   component: Config Server
 spring:
+  profiles:
+    active: native
   application:
     name: configserver
   jmx:
     default_domain: cloud.config.server
+
   cloud:
     config:
       server:
-        git:
-          uri: https://github.com/cornelcreanga/config-repo
-          repos:
-            - patterns: multi-repo-demo-*
-              uri: https://github.com/cornelcreanga/config-repo
-
+        native:
+#          search-locations: file:/tmp/springbootapp/properties/
+          search-locations: file:/home/corneliu/projects/personal/spring-cloud-test/server-test/props/
 server:
   port: 8888
 management:
   context_path: /admin
 
-#info:
-#  component: Config Server
-#spring:
-#  profiles:
-#    active: native
-#  application:
-#    name: configserver
-#  jmx:
-#    default_domain: cloud.config.server
-#
-#    cloud:
-#      config:
-#        server:
-#          native:
-#            searchLocations: file:/tmp/springbootapp/properties/
-#server:
-#  port: 8888
-#management:
-#  context_path: /admin
-#
+my:
+  property: myvalue
+
 #logging:
 #  level:
 #    com.ccreanga.examples.springcloud: DEBUG
